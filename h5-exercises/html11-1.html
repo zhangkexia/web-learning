@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Web Storage API</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function checkStorageSupport() {
+			// sessionStorage
+			if (window.sessionStorage) {
+				alert('This browser supports sessionStorage');
+			} else {
+				alert('This browser does NOT support sessionStorage');
+			}
+			//localStorage
+			if (window.localStorage) {
+				alert('This browser supports localStorage');
+			} else {
+				alert('This browser does NOT support localStorage');
+
+			}
+		}
+
+		window.addEventListener("load",checkStorageSupport,true);
+		sessionStorage.setItem('myFirstKey', 'myFirstValue');
+		alert(sessionStorage.getItem('myFirstKey'));
+	</script>
+
+
+</body>
+</html>

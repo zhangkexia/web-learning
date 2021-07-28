@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>canvas</title>
+</head>
+<body>
+	<canvas id="diagonal" style="border: 1px solid;" width="200" height="200"></canvas>
+	<script type="text/javascript">
+		function drawDiagonal() {
+			//get canvas element and context
+			var canvas = document.getElementById('diagonal');
+			var context = canvas.getContext('2d');
+
+			//create a path with absolute coordination
+			context.beginPath();
+			context.moveTo(70, 140);
+			context.lineTo(140, 70);
+
+			//draw this line
+			context.stroke();
+		}
+		window.addEventListener("load", drawDiagonal, true)
+	</script>
+</body>
+</html>

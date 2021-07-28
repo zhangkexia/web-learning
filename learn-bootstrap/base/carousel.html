@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>carousel</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
+	<script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.12.5/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div id="demo" class="carousel slide" data-ride="carousel">
+      <!--indicators-->
+      <ul class="carousel-indicators">
+        <li data-target="#demo" data-slide-to="0" class="active"></li>
+        <li data-target="#demo" data-slide-to="1"></li>
+        <li data-target="#demo" data-slide-to="2"></li>
+      </ul>
+
+      <!--carousel-inner-->
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="img_fjords_wide.jpg">
+        </div>
+        <div class="carousel-item">
+          <img src="img_nature_wide.jpg"> 
+          <div class="carousel-caption">
+            <h3>text here.</h3>
+            <p>text here.</p>
+          </div> 
+        </div>
+        <div class="carousel-item">
+          <img src="img_mountains_wide.jpg">
+        </div>
+      </div>
+
+      <!--control button-->
+      <a href="#demo" data-slide="prev" class="carousel-control-prev">
+        <span class="carousel-control-prev-icon"></span>
+      </a>
+
+      <a href="#demo" data-slide="next" class="carousel-control-next">
+        <span class="carousel-control-next-icon"></span>
+      </a>
+
+
+
+
+    </div>
+
+
+
+
+  </div>
+</body>
+</html>

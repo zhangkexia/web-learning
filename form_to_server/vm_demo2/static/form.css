@@ -1,0 +1,28 @@
+legend {
+	text-align: center;
+}
+form {
+	background-color: #E8EAED;
+	display: block;
+	width: 350px;
+
+}
+
+input,select{
+	width:200px;
+	border-radius: 3px;
+	border-width: 1px;
+	margin:0 75px;
+}
+button {
+	width:200px;
+	margin:5px 75px;
+	border-style: none;
+	border-radius: 3px;
+	
+}
+button:hover {
+	background-color: #0A357F;
+	border-radius: 3px;
+	color: white;
+}

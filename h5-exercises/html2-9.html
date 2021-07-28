@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>canvas</title>
+</head>
+<body>
+	<canvas id="trails" style="border: 1px solid;" width="400" height="600"></canvas>
+	<script type="text/javascript">
+		//load the bark.jpg
+		var bark = new Image();
+		bark.src = "bark.jpg";
+
+		//after picture loaded, display the trails
+		bark.onload = function () {
+			drawTrails();
+		}
+
+		function createCanopyPath(context) {
+			//draw tree crown
+			context.beginPath();
+
+			context.moveTo(-25,-50);
+			context.lineTo(-10,-80);
+			context.lineTo(-20,-80);
+			context.lineTo(-5, -110);
+			context.lineTo(-15, -110);
+
+
+			//top of the tree
+			context.lineTo(0, -140);
+			context.lineTo(15, -110);
+			context.lineTo(5, -110);
+			context.lineTo(20, -80);
+			context.lineTo(10, -80);
+			context.lineTo(25, -50);
+			//close path
+			context.closePath();
+				
+		}
+
+		function drawTrails() {
+			var canvas = document.getElementById('trails');
+			var context = canvas.getContext('2d');
+
+			context.save();
+			context.translate(130, 250);
+
+			//create path of tree crown
+			createCanopyPath(context)
+
+			//enlarge line
+			context.lineWidth = 4;
+			//set joint
+			context.lineJoin = 'round';
+			//change the color
+			context.strokeStyle = '#663300';
+			context.stroke();
+			//fill the tree
+			context.fillStyle = '#339900';
+			context.fill();			
+			//set the color
+			//context.fillStyle = '#663300';
+			//fill the rectangle
+			//context.fillRect(-5, -50, 10, 50);
+			context.drawImage(bark, -5, -50, 10, 50)
+
+			context.restore();
+
+			//save current state
+			context.save();
+
+			context.translate(-10, 350);
+			context.beginPath();
+
+			//first curve
+			context.moveTo(0, 0);
+			context.quadraticCurveTo(170, -50, 260, -190);
+
+			//second curve
+			context.quadraticCurveTo(310, -250, 410, -250);
+
+			//draw the line
+			context.strokeStyle = '#663300';
+			context.lineWidth = 20;
+			context.stroke();
+
+			//restore the canvas
+			context.restore();
+		}
+
+		//window.addEventListener("load", drawTrails, true)
+	</script>
+</body>
+</html>

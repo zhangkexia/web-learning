@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>navigator</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
+	<script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.12.5/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <ul class="nav nav-pills">
+      <li class="nav-item">
+        <a href="nav-link active" href="#">Active</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" >Dropdown</a>
+        <div class="dropdown-menu">
+          <a href="#" class="dropdown-item">Link 1</a>
+          <a href="#" class="dropdown-item">Link 2</a>
+          <a href="#" class="dropdown-item">Link 2</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link">Link</a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link disabled">Disabled</a>
+      </li>
+    </ul>
+
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a href="#home" class="nav-link active" data-toggle="tab">Home</a>
+      </li>
+      <li class="nav-item">
+        <a href="#menu1" class="nav-link" data-toggle="tab">Menu 1</a>
+      </li>
+      <li class="nav-item">
+        <a href="menu2" class="nav-link" data-toggle="tab">Menu 2</a>
+      </li>
+    </ul>
+
+    <div class="tab-content">
+      <div class="tab-pane active container" id="home">...</div>
+      <div class="tab-pane container" id="menu1">...</div>
+      <div class="tab-pane container" id="menu2">...</div>
+    </div>
+  </div>
+  <nav class="breadcrumb">
+    <a href="#" class="breadcrumb-item">Home</a>
+    <a href="#" class="breadcrumb-item">Library</a>
+    <a href="#" class="breadcrumb-item active">Bootstrap</a>
+  </nav>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>submenu</title>
+</head>
+<body>
+	<form name="f1">
+		<select name="select1" onchange="set_list(this.options.selectedIndex)">
+			<option selected>pls choose</option>
+			<option>popular music</option>
+			<option>web books</option>
+			<option>software download</option>
+		</select>
+		<select name="select2">
+			<option selected>pls choose website</option>
+		</select>
+		<script type="text/javascript">
+			//get number of items in first menu
+			var l=document.f1.select1.options.length;
+			//create an array by this number
+			var group=new Array(l)
+			//every element in last array is array too
+			for (i=0; i<l; i++){
+				group[i] = new Array()
+			}
+
+			group[0][0] = new Option("pls choose")
+			group[1][0] = new Option("CNTV","http://www.cntv.cn")
+			group[1][1] = new Option("music heaven", "#")
+			group[1][2] = new Option("sougou music", "http://mp2.sougou.com")
+
+			group[2][0] = new Option("webpage", "/jscss")
+			group[2][1] = new Option("bailu school", "http://www.readlink.net")
+
+			group[3][0] = new Option("huajun software market", "http://www.newhua.com")
+			group[3][1] = new Option("sohu download", "http://it.sohu.com/download")
+			group[3][2] = new Option("china download", "http://www.download.com.cn")
+
+			//the object need to be changed is second menu
+			var selobj = document.f1.select2;
+
+			//x input is content in first menu
+			function set_list(x){
+				//first clear second menu
+				for (m=selobj.options.length-1;m>0;m--){
+					selobj.options[m]=null
+				}
+				//choose second menu's items by choosen item in first menu
+				for (i=0;i<group[x].length;i++){
+					selobj.options[i] = group[x][i]
+				}
+				//set first item is selected
+				selobj.options[0].selected = true
+			}
+			//set function of "go" button
+			function go(){
+				location=selobj.options[selobj.selectedIndex].value
+			}
+		</script>
+	</form>
+	<p><input type="button" name="Button" value="go" onclick="go()" style="background-color: #FFFFFF; float: left; font-family: Arial Black; font-size: 10pt; font-weight: bold; text-decoration: blink; color: #000000; font-style: italic; border-style: solid; border-width: 1"></p>
+	<p></p>
+
+</body>
+</html>

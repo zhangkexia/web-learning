@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<title>Video</title>
+</head>
+<body>
+	<video id="movies" autoplay oncanplay="startVideo()" onended="stopTimeline()"
+	autobuffer="true" width="400px" height="300px">
+		<source src="Intermission-Walk-in.ogv" >
+		<source src="Intermission-Walk-in_512kb.mp4" >		
+	</video>
+
+	<canvas id="timeline" width="400px" height="300px"></canvas>
+
+	<script type="text/javascript">
+		// interval of catching frame:ms
+		var updateInterval = 5000;
+		// frame size
+		var frameWidth = 100;
+		var frameHeight = 75;
+
+		// num of frame
+		var frameRows = 4;
+		var frameColumns = 4;
+		var frameGrid = frameRows * frameColumns;
+
+		//current frame
+		var frameCount = 0;
+		//cancel counter after playing video
+		var intervalId;
+		var videoStarted = false;
+
+
+
+		function startVideo() {
+			//set counter at first time to play the video
+			if (videoStarted)
+				return;
+			videoStarted = true;
+			//calculate initial frame and set interval
+			//create other frames
+			updateFrame();
+			intervalId = setInterval(updateFrame, updateInterval);
+
+		//create function for procession event that user start
+		var timeline = document.getElementById("timeline");
+		timeline.onclick = function(evt) {
+			var offX = evt.layerX - timeline.offsetLeft;
+			var offY = evt.layerY - timeline.offsetTop;
+
+			//calcute the frame in the Gird whick is clicked
+			var clickedFrame = Math.floor(offY / frameHeight) * frameRows;
+			clickedFrame += Math.floor(offX / frameWidth);
+			//how many frames after starting playing
+			var seekedFrame = (((Math.floor(frameCount / frameGrid)) * frameGrid) +clickedFrame);
+			//if user click the frame before current frame, propose it is the last frame cycle
+			if (clickedFrame > (frameCount % 16)) 
+				seekedFrame -= frameGrid;
+			//can not seek before playing video
+			if (seekedFrame < 0 )
+				return;
+			//seek the target frame
+			var video = document.getElementById("movies");
+			video.currentTime = seekedFrame * updateInterval / 1000;
+
+			//set frameCount
+			frameCount = seekedFrame;
+		}
+	}
+		//draw the frame to canvas
+		function updateFrame() {
+			var video = document.getElementById("movies");
+			var timeline = document.getElementById("timeline");
+
+			var ctx = timeline.getContext("2d");
+
+			//calculate the position by frame number
+			//set video as input preference
+			//draw the canvas
+			var framePosition = frameCount % frameGrid;
+			var frameX = (framePosition % frameColumns) * frameWidth;
+			var frameY = (Math.floor(framePosition / frameRows)) * frameHeight;
+			ctx.drawImage(video, 0, 0, 400, 300, frameX, frameY, frameWidth, frameHeight);
+			frameCount++;
+		}
+		//stop collect timeline frame
+		function stopTimeline() {
+			clearInterval(intervalId);
+		}
+	</script>
+
+</body>
+</html>

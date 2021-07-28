@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>choose city</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div>
+	<fieldset>
+		<legend>method1: drop select for choosing city(3 level)</legend>
+		<form action="#">
+			<label for="addr-show">your choice is:
+				<input type="text" value="" id="addr-show">
+			</label>
+			<br/>
+
+			<!--provence options-->
+			<select id="prov" onchange="showCity(this)">
+				<option>=pls choose provence=</option>
+			</select>
+
+			<!--city options-->
+			<select id="city" onchange="showCountry(this)">
+				<option>=pls choose city=</option>
+				
+			</select>
+
+			<!--country options-->
+			<select id="country" onchange="selecCountry(this)" >
+				<option>=pls choose country</option>
+			</select>
+			<button type="button" class="btn met1" onclick="showAddr()">confirm</button>
+		</form>
+	</fieldset>
+</div>
+<!--**************************************line*************************************-->
+
+<div>
+	<fieldset>
+		<legend>method2: choose options by level</legend>
+		<label for="addr-show02">your choice is:
+			<input type="text" id="addr-show02">
+		</label>
+		<div id="addr-choice">
+			<ul id="title-wrap">
+				<li value="0">provence</li>
+				<li value="1">city</li>
+				<li value="2">country</li>
+			</ul>
+			<div id="show-pane1">
+				<ul id="addr-wrap">
+					
+				</ul>
+			</div>
+		</div>
+		<button type="button" class="btn met2">confirm</button>
+	</fieldset>
+</div>
+<!--*****************************************line******************************-->
+<div>
+	<fieldset>
+		<legend>method3: choose city by letter order</legend>
+		<label for="addr-show03">your choice is:
+			<input type="text" id="addr-show03">
+		</label>
+		<div id="data-wrap">
+			<ul id="data-order">
+				<li value="0">hot</li>
+				<li value="1">ABCD</li>
+				<li value="2">EFGH</li>
+				<li value="3">JKLM</li>
+				<li value="4">NPQR</li>
+				<li value="5">STWX</li>
+				<li value="6">YZ</li>
+			</ul>
+			<div id="data-show"></div>
+		</div>
+	</fieldset>
+</div>
+<script type="text/javascript" src="city.js"></script>
+<script type="text/javascript" src="city02.js"></script>
+
+<script type="text/javascript" src="method01.js"></script>
+<script type="text/javascript" src="method02.js"></script>
+<script type="text/javascript" src="method03.js"></script>
+
+</body>
+</html>

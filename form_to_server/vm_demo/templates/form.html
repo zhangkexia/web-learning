@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Please Query</title>
+	
+	<link rel="stylesheet" type="text/css" href="../static/form.css">
+</head>
+<body>
+	
+	<form action="/" method="post">
+		<legend>Please Query:</legend>
+		<!--
+		<p><input name="systype" placeholder="type"></p>
+	    -->
+		<p>
+			<select name="ostype" id="ostype" onchange="showTemp(this)">
+				<option selected>Please choose ostype</option>
+			</select>
+		</p>
+		<p>
+			<select name="vmtemplate" id="vmtemplate">
+				<option selected>Please choose vmtemplate</option>
+			</select>
+		</p>
+		<p>
+			<select name="vchost" id="vchost" onchange="showRes(this)">
+				<option selected>Please choose vchost</option>
+			</select>
+		</p>
+		<!--
+		<p><input name="vcusername" placeholder="vcusername"></p>
+		<p><input name="vcpassword" placeholder="vcpassword" type="password"></p>
+	    -->
+		<p>
+			<select name="datacenter" id="datacenter">
+				<option selected>Please choose datacenter</option>
+			</select>
+		</p>
+		<p>
+			<select name="esxi_hostname" id="esxi_hostname">
+				<option selected>Please choose esxi_host</option>
+			</select>
+		</p>
+		<p>
+			<select name="datastore" id="datastore">
+				<option selected>Please choose datastore</option>
+			</select>
+		</p>
+		<p><input name="vcname" placeholder="vcname"></p>
+		<p><input name="vcnameos" placeholder="vcnameos"></p>
+		
+		<p><input name="disksize" placeholder="disksize"></p>
+		<p><select name="cpumem">
+			<option selected>Please choose cpu and memorysize</option>
+			<option>4C8G</option>
+			<option>2C4G</option>
+		</select>
+	    </p>
+		<!--
+		<p><input name="memorysize" placeholder="memorysize"></p>
+		<p><input name="cpusnum" placeholder="cpusnum"></p>
+		<p><input name="corenum" placeholder="corenum"></p>
+	    -->
+		<p><input name="ip" placeholder="ip" onchange="showSubnet(this)"></p>
+		<p><input name="subnet" placeholder="subnet" id="subnet"></p>
+		<!--
+		<p><input name="netmask" placeholder="netmask"></p>
+	    -->
+		<p><input name="gateway" placeholder="gateway"></p>
+		<p><input name="ip2" placeholder="ip2" onchange="showSubnet2(this)"></p>
+		<p><input name="subnet2" placeholder="subnet2" id="subnet2"></p>
+		<!--
+		<p><input name="netmask2" placeholder="netmask2"></p>
+	    -->
+		<p><input name="annotation" placeholder="annotation"></p>
+		<p><button type="submit">Query</button></p>
+	</form>
+	{% if message %}
+	<p style="color:red">{{ message }}</p>
+	<!--
+	<script type="text/javascript">
+		var mess = {{message|tojson}};
+	</script>
+    -->
+    {% endif %}
+	<script type="text/javascript" src="../static/info.js"></script>
+	<script type="text/javascript" src="../static/form.js"></script>
+	
+</body>
+</html>

@@ -1,0 +1,26 @@
+ul, h2 {
+	margin:0;
+	padding: 0;
+}
+li {
+	list-style: none;
+}
+#nav {
+	border: 1px solid #333;
+	float: left;
+	padding: 5px 0;
+	background: #ccf;
+}
+
+#nav ul {
+	padding-left: 20px;
+	display: none;
+}
+
+
+#nav h2 {
+	font-size: 16px;
+	height: 25px;
+	line-height: 25px;
+	padding: 0 15px;
+}
